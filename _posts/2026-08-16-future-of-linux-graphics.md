@@ -540,7 +540,7 @@ That combination has the potential to define the next generation of Linux graphi
 
 ### About the Author
 
-**Suresh Kumar Kurmi** is a Senior Engineering Manager in Display Graphics with experience spanning Linux graphics, semiconductor software, embedded systems, architecture and engineering leadership.
+**Suresh Kumar Kurmi** is a Senior Engineering Leader in Display Graphics with experience spanning Linux graphics, semiconductor software, embedded systems, architecture and engineering leadership.
 
 His technical interests include Linux graphics and display, GPU software, open source, engineering automation and AI-driven transformation of software engineering.
 
