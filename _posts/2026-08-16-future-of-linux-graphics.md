@@ -3,7 +3,7 @@ layout: post
 title: "The Future of Linux Graphics: From Kernel Engineering to AI-Driven Platform Innovation"
 date: 2026-08-16
 categories: [Linux Graphics, GPU, Open Source, AI, Engineering Leadership]
-tags: [Linux, DRM, KMS, GPU, Display Graphics, Mesa, Wayland, Open Source, AI, Semiconductor Software]
+tags: [Linux, DRM, KMS, GPU, Display Graphics, Wayland, Open Source, AI, Semiconductor Software]
 ---
 
 # The Future of Linux Graphics: From Kernel Engineering to AI-Driven Platform Innovation
@@ -39,7 +39,6 @@ A contemporary graphics stack involves multiple layers:
 - Linux kernel drivers
 - DRM/KMS
 - User-space graphics drivers
-- Mesa
 - Wayland and compositors
 - Display protocols
 - Media and compute integration
