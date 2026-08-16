@@ -1,3 +1,4 @@
+</> YAML
 ---
 layout: post
 title: "The Future of Linux Graphics: From Kernel Engineering to AI-Driven Platform Innovation"
