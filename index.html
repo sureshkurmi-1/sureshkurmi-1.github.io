@@ -448,6 +448,89 @@
                 letter-spacing: -1.8px;
             }
         }
+        /* CAREER TIMELINE */
+
+.career {
+    background: #ffffff;
+}
+
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin-top: 45px;
+    padding-left: 35px;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 5px;
+    bottom: 5px;
+    width: 2px;
+    background: #dbe3ef;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 38px;
+    padding-left: 28px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -1px;
+    top: 6px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #155eef;
+    border: 4px solid #ffffff;
+    box-shadow: 0 0 0 1px #cbd5e1;
+}
+
+.timeline-period {
+    font-size: 13px;
+    font-weight: 750;
+    color: #155eef;
+    letter-spacing: 0.3px;
+    margin-bottom: 4px;
+}
+
+.timeline-company {
+    font-size: 21px;
+    font-weight: 750;
+    color: #111827;
+    margin-bottom: 2px;
+}
+
+.timeline-role {
+    font-size: 16px;
+    font-weight: 650;
+    color: #344054;
+    margin-bottom: 7px;
+}
+
+.timeline-focus {
+    font-size: 14px;
+    color: #667085;
+    max-width: 720px;
+}
+
+@media (max-width: 650px) {
+    .timeline {
+        padding-left: 25px;
+    }
+
+    .timeline-item {
+        padding-left: 22px;
+    }
+}
     </style>
 </head>
 
@@ -459,11 +542,12 @@
         <a class="logo" href="/">Suresh Kurmi</a>
 
         <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#focus">Expertise</a>
-            <a href="#articles">Articles</a>
-            <a href="#leadership">Leadership</a>
-        </div>
+    <a href="#about">About</a>
+    <a href="#focus">Expertise</a>
+    <a href="#career">Career</a>
+    <a href="#articles">Articles</a>
+    <a href="#leadership">Leadership</a>
+</div>
 
     </div>
 </nav>
@@ -644,6 +728,142 @@
 
 </section>
 
+<section id="career" class="career">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="section-label">Career & Experience</div>
+
+            <h2 class="section-title">
+                23+ years of engineering across technology domains
+            </h2>
+
+            <p class="section-intro">
+                A career spanning space systems, digital signal processing,
+                semiconductor software, embedded systems, architecture and
+                Display Graphics engineering leadership.
+            </p>
+
+        </div>
+
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+
+                <div class="timeline-period">
+                    2019–Present
+                </div>
+
+                <div class="timeline-company">
+                    Intel Corporation
+                </div>
+
+                <div class="timeline-role">
+                    Senior Engineering Manager — Display Graphics
+                </div>
+
+                <div class="timeline-focus">
+                    Leading Display Graphics engineering across global teams,
+                    with focus on Linux graphics, GPU/display software,
+                    open-source development, engineering excellence and
+                    AI-driven transformation.
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-period">
+                    2012–2019
+                </div>
+
+                <div class="timeline-company">
+                    Bosch
+                </div>
+
+                <div class="timeline-role">
+                    Senior Architect
+                </div>
+
+                <div class="timeline-focus">
+                    Architecture and engineering across embedded and
+                    automotive software.
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-period">
+                    2009–2012
+                </div>
+
+                <div class="timeline-company">
+                    ST-Ericsson
+                </div>
+
+                <div class="timeline-role">
+                    Technical Lead
+                </div>
+
+                <div class="timeline-focus">
+                    Technical leadership and semiconductor software engineering.
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-period">
+                    2006–2009
+                </div>
+
+                <div class="timeline-company">
+                    STMicroelectronics
+                </div>
+
+                <div class="timeline-role">
+                    Engineering
+                </div>
+
+                <div class="timeline-focus">
+                    Semiconductor and embedded software engineering.
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-period">
+                    2003–2006
+                </div>
+
+                <div class="timeline-company">
+                    ISRO
+                </div>
+
+                <div class="timeline-role">
+                    Scientist/Engineer "SD"
+                </div>
+
+                <div class="timeline-focus">
+                    Microwave Radar Imaging and Digital Signal Processing.
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>    
 
 <section id="articles">
 
