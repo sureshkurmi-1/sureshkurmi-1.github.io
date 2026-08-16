@@ -1,8 +1,8 @@
-</> YAML
 ---
 layout: post
 title: "The Future of Linux Graphics: From Kernel Engineering to AI-Driven Platform Innovation"
 date: 2026-08-16
+permalink: /2026/08/16/future-of-linux-graphics/
 categories: [Linux Graphics, GPU, Open Source, AI, Engineering Leadership]
 tags: [Linux, DRM, KMS, GPU, Display Graphics, Wayland, Open Source, AI, Semiconductor Software]
 ---
