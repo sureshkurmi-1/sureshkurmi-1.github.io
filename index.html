@@ -1,13 +1,14 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Suresh Kumar Kurmi | Engineering Leader</title>
+    <title>Suresh Kurmi | Linux Graphics & Engineering Leadership</title>
 
     <meta name="description"
-          content="Suresh Kumar Kurmi - Engineering Leader focused on Linux Graphics, Display, Semiconductor Software, Open Source and AI-driven Engineering.">
+          content="Suresh Kumar Kurmi — Engineering Leader focused on Linux Graphics, GPU and Display Software, Semiconductor Engineering, Open Source and AI-driven Engineering.">
 
     <style>
         * {
@@ -22,8 +23,8 @@
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
                          Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.7;
-            color: #1f2937;
+            line-height: 1.65;
+            color: #243044;
             background: #ffffff;
         }
 
@@ -33,19 +34,19 @@
         }
 
         .container {
-            width: min(1100px, 92%);
+            width: min(1120px, 92%);
             margin: auto;
         }
 
-        /* Navigation */
+        /* NAVIGATION */
 
         nav {
             position: sticky;
             top: 0;
             z-index: 100;
             background: rgba(255,255,255,0.96);
-            border-bottom: 1px solid #e5e7eb;
-            backdrop-filter: blur(8px);
+            border-bottom: 1px solid #e6eaf0;
+            backdrop-filter: blur(10px);
         }
 
         .nav-inner {
@@ -57,83 +58,94 @@
 
         .logo {
             font-size: 20px;
-            font-weight: 700;
-            letter-spacing: -0.3px;
+            font-weight: 750;
+            color: #111827;
+            letter-spacing: -0.4px;
         }
 
         .nav-links {
             display: flex;
-            gap: 26px;
+            gap: 28px;
             font-size: 14px;
-            color: #4b5563;
+            color: #526071;
         }
 
         .nav-links a:hover {
-            color: #111827;
+            color: #155eef;
         }
 
-        /* Hero */
+        /* HERO */
 
         .hero {
-            padding: 95px 0 85px;
-            background: linear-gradient(135deg, #f8fafc, #eef4ff);
-            border-bottom: 1px solid #e5e7eb;
+            padding: 105px 0 95px;
+            background:
+                radial-gradient(circle at 85% 15%,
+                    rgba(37,99,235,0.09),
+                    transparent 32%),
+                linear-gradient(135deg, #f8fafc, #eef4ff);
+            border-bottom: 1px solid #e5eaf1;
         }
 
-        .hero-content {
-            max-width: 900px;
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 70px;
+            align-items: center;
         }
 
         .eyebrow {
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 1.4px;
-            text-transform: uppercase;
-            color: #2563eb;
+            display: inline-block;
             margin-bottom: 18px;
+            font-size: 13px;
+            font-weight: 750;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #155eef;
         }
 
         h1 {
-            font-size: clamp(42px, 6vw, 68px);
-            line-height: 1.05;
-            letter-spacing: -2px;
             margin: 0 0 20px;
+            font-size: clamp(46px, 6vw, 72px);
+            line-height: 1.02;
+            letter-spacing: -2.8px;
             color: #111827;
         }
 
-        .hero h2 {
-            font-size: clamp(21px, 3vw, 30px);
+        .hero-title {
+            margin: 0 0 25px;
+            max-width: 850px;
+            font-size: clamp(22px, 3vw, 31px);
             line-height: 1.35;
-            font-weight: 500;
-            color: #374151;
-            margin: 0 0 28px;
+            font-weight: 550;
+            color: #344054;
         }
 
-        .hero p {
+        .hero-description {
             max-width: 780px;
+            margin: 0;
             font-size: 18px;
-            color: #4b5563;
+            color: #526071;
         }
 
         .buttons {
-            margin-top: 30px;
             display: flex;
-            gap: 14px;
             flex-wrap: wrap;
+            gap: 13px;
+            margin-top: 32px;
         }
 
         .button {
-            display: inline-block;
-            padding: 11px 20px;
+            padding: 11px 19px;
+            border: 1px solid #d0d5dd;
             border-radius: 7px;
-            font-weight: 600;
             font-size: 14px;
-            border: 1px solid #d1d5db;
+            font-weight: 650;
+            background: #ffffff;
         }
 
         .button.primary {
+            color: #ffffff;
             background: #111827;
-            color: white;
             border-color: #111827;
         }
 
@@ -141,53 +153,105 @@
             transform: translateY(-1px);
         }
 
-        /* Sections */
+        /* HERO SIDE */
+
+        .hero-panel {
+            padding: 28px;
+            border: 1px solid #dce3ed;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.78);
+            box-shadow: 0 18px 45px rgba(16,24,40,0.07);
+        }
+
+        .hero-panel-label {
+            margin-bottom: 18px;
+            font-size: 12px;
+            font-weight: 750;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: #667085;
+        }
+
+        .hero-panel-item {
+            padding: 13px 0;
+            border-bottom: 1px solid #eaecf0;
+            font-size: 15px;
+            font-weight: 600;
+            color: #344054;
+        }
+
+        .hero-panel-item:last-child {
+            border-bottom: none;
+        }
+
+        /* SECTIONS */
 
         section {
-            padding: 78px 0;
+            padding: 82px 0;
+        }
+
+        .section-heading {
+            max-width: 760px;
+            margin-bottom: 40px;
+        }
+
+        .section-label {
+            margin-bottom: 8px;
+            font-size: 12px;
+            font-weight: 750;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            color: #155eef;
         }
 
         .section-title {
-            font-size: 34px;
-            letter-spacing: -0.8px;
             margin: 0 0 12px;
+            font-size: 35px;
+            line-height: 1.2;
+            letter-spacing: -0.9px;
             color: #111827;
         }
 
         .section-intro {
-            max-width: 760px;
-            color: #6b7280;
-            margin-bottom: 38px;
+            margin: 0;
+            color: #667085;
+            font-size: 16px;
         }
 
-        /* Expertise */
+        /* FOCUS */
 
-        .expertise {
+        .focus-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 22px;
         }
 
-        .card {
-            border: 1px solid #e5e7eb;
-            border-radius: 10px;
-            padding: 28px;
-            background: white;
+        .focus-card {
+            padding: 30px;
+            border: 1px solid #e4e7ec;
+            border-radius: 11px;
+            background: #ffffff;
         }
 
-        .card h3 {
-            margin-top: 0;
-            margin-bottom: 10px;
+        .focus-card h3 {
+            margin: 0 0 11px;
             font-size: 20px;
             color: #111827;
         }
 
-        .card p {
+        .focus-card p {
             margin: 0;
-            color: #6b7280;
+            color: #667085;
+            font-size: 15px;
         }
 
-        /* Articles */
+        .keywords {
+            margin-top: 16px;
+            font-size: 13px;
+            color: #667085;
+        }
+
+        /* ARTICLES */
 
         .articles {
             display: grid;
@@ -196,75 +260,126 @@
         }
 
         .article {
-            border: 1px solid #e5e7eb;
-            border-radius: 10px;
-            padding: 26px;
-            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            padding: 28px;
+            min-height: 300px;
+            border: 1px solid #e4e7ec;
+            border-radius: 11px;
+            background: #ffffff;
+            transition: transform .2s ease, box-shadow .2s ease;
         }
 
         .article:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            box-shadow: 0 12px 32px rgba(16,24,40,0.08);
         }
 
-        .article-label {
-            font-size: 12px;
-            font-weight: 700;
+        .article-category {
+            margin-bottom: 14px;
+            font-size: 11px;
+            font-weight: 750;
+            letter-spacing: 1.1px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #2563eb;
+            color: #155eef;
         }
 
         .article h3 {
+            margin: 0 0 13px;
             font-size: 20px;
             line-height: 1.35;
-            margin: 12px 0;
+            color: #111827;
         }
 
         .article p {
-            color: #6b7280;
+            margin: 0;
+            color: #667085;
             font-size: 15px;
         }
 
-        .read-more {
-            font-weight: 600;
+        .article-link {
+            margin-top: auto;
+            padding-top: 24px;
             font-size: 14px;
-            color: #2563eb;
+            font-weight: 700;
+            color: #155eef;
         }
 
-        /* About */
+        /* ABOUT */
 
         .about {
             background: #f8fafc;
+            border-top: 1px solid #eaecf0;
+            border-bottom: 1px solid #eaecf0;
         }
 
-        .about-content {
-            max-width: 850px;
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
         }
 
-        .about-content p {
-            font-size: 17px;
-            color: #4b5563;
+        .about p {
+            margin: 0 0 18px;
+            font-size: 16px;
+            color: #526071;
         }
 
-        /* Quote */
-
-        .quote {
-            margin-top: 35px;
-            padding: 28px 32px;
-            border-left: 4px solid #2563eb;
-            background: white;
-            font-size: 21px;
-            font-weight: 500;
-            color: #374151;
+        .principles {
+            padding: 28px;
+            border: 1px solid #dfe5ed;
+            border-radius: 11px;
+            background: #ffffff;
         }
 
-        /* Footer */
+        .principles h3 {
+            margin-top: 0;
+            color: #111827;
+        }
+
+        .principle {
+            padding: 13px 0;
+            border-bottom: 1px solid #eaecf0;
+            font-weight: 600;
+            color: #344054;
+        }
+
+        .principle:last-child {
+            border-bottom: none;
+        }
+
+        /* LEADERSHIP */
+
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .leadership-card {
+            padding: 25px;
+            border-top: 3px solid #155eef;
+            background: #f8fafc;
+        }
+
+        .leadership-card h3 {
+            margin: 0 0 10px;
+            font-size: 18px;
+            color: #111827;
+        }
+
+        .leadership-card p {
+            margin: 0;
+            font-size: 14px;
+            color: #667085;
+        }
+
+        /* FOOTER */
 
         footer {
-            background: #111827;
-            color: #d1d5db;
-            padding: 42px 0;
+            padding: 40px 0;
+            background: #101828;
+            color: #98a2b3;
         }
 
         .footer-inner {
@@ -274,38 +389,63 @@
             flex-wrap: wrap;
         }
 
+        .footer-name {
+            color: #ffffff;
+            font-weight: 650;
+        }
+
         .footer-links {
             display: flex;
-            gap: 20px;
+            gap: 22px;
         }
 
         .footer-links a:hover {
-            color: white;
+            color: #ffffff;
         }
 
-        /* Mobile */
+        /* MOBILE */
 
-        @media (max-width: 800px) {
+        @media (max-width: 900px) {
+
+            .hero-grid,
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-panel {
+                max-width: 500px;
+            }
+
+            .articles {
+                grid-template-columns: 1fr;
+            }
+
+            .leadership-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 650px) {
 
             .nav-links {
                 display: none;
             }
 
             .hero {
-                padding: 65px 0;
-            }
-
-            .expertise,
-            .articles {
-                grid-template-columns: 1fr;
+                padding: 68px 0;
             }
 
             section {
-                padding: 58px 0;
+                padding: 60px 0;
             }
 
-            .footer-inner {
-                flex-direction: column;
+            .focus-grid,
+            .leadership-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                letter-spacing: -1.8px;
             }
         }
     </style>
@@ -313,16 +453,14 @@
 
 <body>
 
-<!-- Navigation -->
-
 <nav>
     <div class="container nav-inner">
 
-        <a class="logo" href="/">Suresh Kumar Kurmi</a>
+        <a class="logo" href="/">Suresh Kurmi</a>
 
         <div class="nav-links">
             <a href="#about">About</a>
-            <a href="#expertise">Expertise</a>
+            <a href="#focus">Expertise</a>
             <a href="#articles">Articles</a>
             <a href="#leadership">Leadership</a>
         </div>
@@ -331,104 +469,173 @@
 </nav>
 
 
-<!-- Hero -->
-
 <header class="hero">
 
-    <div class="container hero-content">
+    <div class="container hero-grid">
 
-        <div class="eyebrow">
-            Engineering Leadership • Linux • Semiconductors • AI
+        <div>
+
+            <div class="eyebrow">
+                Engineering Leadership • Linux • GPU • Semiconductors • AI
+            </div>
+
+            <h1>Suresh Kurmi</h1>
+
+            <h2 class="hero-title">
+                Engineering Leader | Linux Graphics & Display |
+                GPU & Semiconductor Software | Open Source | AI-Driven Engineering
+            </h2>
+
+            <p class="hero-description">
+                Technical perspectives on Linux graphics, GPU software,
+                semiconductor platforms, open source and the transformation
+                of engineering through AI and automation.
+            </p>
+
+            <div class="buttons">
+
+                <a class="button primary"
+                   href="https://www.linkedin.com/"
+                   target="_blank">
+                    LinkedIn
+                </a>
+
+                <a class="button"
+                   href="https://github.com/sureshkurmi-1"
+                   target="_blank">
+                    GitHub
+                </a>
+
+                <a class="button" href="#articles">
+                    Explore the blog
+                </a>
+
+            </div>
+
         </div>
 
-        <h1>Suresh Kumar Kurmi</h1>
 
-        <h2>
-            Engineering Leader | Linux Graphics & Display |
-            Semiconductor Software | AI-Driven Engineering
-        </h2>
+        <aside class="hero-panel">
 
-        <p>
-            Engineering leader focused on Linux graphics, display systems,
-            GPU software, semiconductor platforms, open source and
-            AI-driven engineering transformation.
-        </p>
+            <div class="hero-panel-label">
+                Areas of Focus
+            </div>
 
-        <div class="buttons">
+            <div class="hero-panel-item">
+                Linux Graphics & Display
+            </div>
 
-            <a class="button primary"
-               href="https://www.linkedin.com/"
-               target="_blank">
-                LinkedIn
-            </a>
+            <div class="hero-panel-item">
+                GPU & Platform Software
+            </div>
 
-            <a class="button"
-               href="https://github.com/sureshkurmi-1"
-               target="_blank">
-                GitHub
-            </a>
+            <div class="hero-panel-item">
+                Open Source Engineering
+            </div>
 
-            <a class="button" href="#articles">
-                Read my writing
-            </a>
+            <div class="hero-panel-item">
+                AI-Driven Engineering
+            </div>
 
-        </div>
+            <div class="hero-panel-item">
+                Technical Leadership
+            </div>
+
+        </aside>
 
     </div>
 
 </header>
 
 
-<!-- Expertise -->
-
-<section id="expertise">
+<section id="focus">
 
     <div class="container">
 
-        <h2 class="section-title">Areas of Expertise</h2>
+        <div class="section-heading">
 
-        <p class="section-intro">
-            Technical and leadership perspectives spanning the
-            graphics software stack, semiconductor platforms,
-            open source and AI-enabled engineering.
-        </p>
+            <div class="section-label">Technical Focus</div>
 
-        <div class="expertise">
+            <h2 class="section-title">
+                Where technology and engineering leadership meet
+            </h2>
 
-            <div class="card">
+            <p class="section-intro">
+                Exploring the systems, technologies and engineering
+                practices shaping the next generation of semiconductor
+                and Linux platforms.
+            </p>
+
+        </div>
+
+
+        <div class="focus-grid">
+
+            <div class="focus-card">
+
                 <h3>Linux Graphics & Display</h3>
+
                 <p>
-                    Linux kernel graphics, DRM/KMS, GPU drivers,
-                    display pipelines, Wayland, graphics
-                    architecture, performance and power optimization.
+                    System-level graphics engineering across the Linux
+                    graphics stack, with a focus on GPU drivers, display
+                    systems and performance.
                 </p>
+
+                <div class="keywords">
+                    DRM/KMS · GPU Drivers · Wayland · Display
+                </div>
+
             </div>
 
-            <div class="card">
+
+            <div class="focus-card">
+
                 <h3>Semiconductor Software</h3>
+
                 <p>
-                    Platform software, hardware enablement,
-                    system software, validation, performance
-                    engineering and cross-layer debugging.
+                    Software engineering at the hardware/software boundary,
+                    from platform enablement to validation, performance
+                    and system-level debugging.
                 </p>
+
+                <div class="keywords">
+                    Platform Software · Performance · Power · Validation
+                </div>
+
             </div>
 
-            <div class="card">
+
+            <div class="focus-card">
+
                 <h3>AI & Engineering Transformation</h3>
+
                 <p>
-                    AI-assisted development, engineering productivity,
-                    automated quality, regression analysis,
-                    root-cause analysis and engineering transformation.
+                    Exploring how AI and automation can improve the
+                    engineering lifecycle from design and development
+                    through validation and debugging.
                 </p>
+
+                <div class="keywords">
+                    AI-Assisted Development · Automation · Quality · RCA
+                </div>
+
             </div>
 
-            <div class="card">
-                <h3>Open Source & Technical Leadership</h3>
+
+            <div class="focus-card">
+
+                <h3>Open Source Engineering</h3>
+
                 <p>
-                    Upstream-first development, Linux ecosystem
-                    collaboration, technical strategy, global
-                    engineering organizations and talent development.
+                    Perspectives on upstream-first development,
+                    open-source collaboration and building sustainable
+                    software ecosystems.
                 </p>
+
+                <div class="keywords">
+                    Linux Kernel · Upstreaming · Open Source · Ecosystems
+                </div>
+
             </div>
 
         </div>
@@ -438,24 +645,31 @@
 </section>
 
 
-<!-- Articles -->
-
 <section id="articles">
 
     <div class="container">
 
-        <h2 class="section-title">Featured Articles</h2>
+        <div class="section-heading">
 
-        <p class="section-intro">
-            Perspectives on technology, engineering transformation
-            and leadership from the Linux and semiconductor ecosystem.
-        </p>
+            <div class="section-label">From the Blog</div>
+
+            <h2 class="section-title">
+                Technical perspectives
+            </h2>
+
+            <p class="section-intro">
+                Writing about technology, engineering transformation
+                and leadership in the Linux and semiconductor ecosystem.
+            </p>
+
+        </div>
+
 
         <div class="articles">
 
             <article class="article">
 
-                <div class="article-label">
+                <div class="article-category">
                     Linux Graphics
                 </div>
 
@@ -469,7 +683,7 @@
                     engineering are changing the future of Linux graphics.
                 </p>
 
-                <a class="read-more"
+                <a class="article-link"
                    href="/2026/08/16/future-of-linux-graphics/">
                     Read article →
                 </a>
@@ -479,7 +693,7 @@
 
             <article class="article">
 
-                <div class="article-label">
+                <div class="article-category">
                     AI & Engineering
                 </div>
 
@@ -489,11 +703,12 @@
                 </h3>
 
                 <p>
-                    Exploring how AI can improve engineering workflows,
-                    debugging, validation and developer productivity.
+                    Why the biggest opportunity for AI in engineering
+                    may be reducing engineering friction rather than
+                    simply generating code.
                 </p>
 
-                <span class="read-more">
+                <span class="article-link">
                     Coming soon
                 </span>
 
@@ -502,7 +717,7 @@
 
             <article class="article">
 
-                <div class="article-label">
+                <div class="article-category">
                     Open Source
                 </div>
 
@@ -511,11 +726,11 @@
                 </h3>
 
                 <p>
-                    Why upstream engineering is becoming increasingly
-                    strategic for semiconductor software organizations.
+                    How upstream engineering can become a strategic
+                    advantage for semiconductor software organizations.
                 </p>
 
-                <span class="read-more">
+                <span class="article-link">
                     Coming soon
                 </span>
 
@@ -528,96 +743,137 @@
 </section>
 
 
-<!-- About -->
-
 <section id="about" class="about">
 
-    <div class="container about-content">
+    <div class="container about-grid">
 
-        <h2 class="section-title">About</h2>
+        <div>
 
-        <p>
-            I am an engineering leader with extensive experience
-            across semiconductor software, platform engineering,
-            Linux and open-source development.
-        </p>
+            <div class="section-label">About</div>
 
-        <p>
-            My technical interests span Linux graphics and display
-            software, GPU drivers, DRM/KMS, Wayland,
-            multimedia and system-level performance.
-        </p>
+            <h2 class="section-title">
+                Engineering with a system-level perspective
+            </h2>
 
-        <p>
-            I am particularly interested in how AI and automation
-            can transform software engineering—from design and
-            development through validation, debugging and quality.
-        </p>
+            <p>
+                My engineering interests span Linux graphics and display
+                software, GPU software, semiconductor platforms and
+                open-source development.
+            </p>
 
-        <div class="quote">
-            Great engineering combines deep technical expertise,
-            broad system thinking, disciplined execution and
-            strong people leadership.
+            <p>
+                I am particularly interested in the intersection of
+                deep technical expertise, system-level thinking and
+                engineering transformation.
+            </p>
+
+            <p>
+                This site is where I share perspectives on technology,
+                AI-assisted engineering, open source and technical
+                leadership.
+            </p>
+
+        </div>
+
+
+        <div class="principles">
+
+            <h3>Engineering Principles</h3>
+
+            <div class="principle">
+                Deep technical expertise
+            </div>
+
+            <div class="principle">
+                Broad system-level thinking
+            </div>
+
+            <div class="principle">
+                Upstream-first engineering
+            </div>
+
+            <div class="principle">
+                Automation and continuous improvement
+            </div>
+
+            <div class="principle">
+                Strong technical leadership
+            </div>
+
         </div>
 
     </div>
 
 </section>
 
-
-<!-- Leadership -->
 
 <section id="leadership">
 
     <div class="container">
 
-        <h2 class="section-title">
-            Engineering Leadership
-        </h2>
+        <div class="section-heading">
 
-        <p class="section-intro">
-            Building high-performing engineering organizations
-            requires more than delivering projects. It requires
-            technical vision, execution discipline, innovation
-            and development of future technical leaders.
-        </p>
+            <div class="section-label">Leadership</div>
 
-        <div class="expertise">
+            <h2 class="section-title">
+                Building engineering organizations for the next generation
+            </h2>
 
-            <div class="card">
+            <p class="section-intro">
+                Effective engineering leadership combines technology,
+                execution, innovation and people development.
+            </p>
+
+        </div>
+
+
+        <div class="leadership-grid">
+
+            <div class="leadership-card">
+
                 <h3>Technical Strategy</h3>
+
                 <p>
                     Connecting technology direction with product,
-                    platform and ecosystem requirements while
-                    maintaining strong architectural foundations.
+                    platform and ecosystem requirements.
                 </p>
+
             </div>
 
-            <div class="card">
+
+            <div class="leadership-card">
+
                 <h3>Engineering Excellence</h3>
+
                 <p>
-                    Using automation, validation, quality practices
-                    and data-driven engineering to continuously
-                    improve execution.
+                    Improving quality and execution through automation,
+                    validation and data-driven engineering.
                 </p>
+
             </div>
 
-            <div class="card">
-                <h3>AI-Driven Transformation</h3>
+
+            <div class="leadership-card">
+
+                <h3>AI Transformation</h3>
+
                 <p>
-                    Applying AI to engineering workflows including
-                    code review, root-cause analysis, regression
-                    triage, documentation and knowledge discovery.
+                    Applying AI to engineering workflows while
+                    preserving engineering judgment and accountability.
                 </p>
+
             </div>
 
-            <div class="card">
-                <h3>Developing Technical Leaders</h3>
+
+            <div class="leadership-card">
+
+                <h3>Technical Leaders</h3>
+
                 <p>
-                    Creating an environment where engineers grow
-                    into architects, technical leads and leaders
-                    capable of operating at organizational scale.
+                    Developing engineers and architects who can
+                    operate effectively at organizational scale.
                 </p>
+
             </div>
 
         </div>
@@ -626,15 +882,15 @@
 
 </section>
 
-
-<!-- Footer -->
 
 <footer>
 
     <div class="container footer-inner">
 
         <div>
-            © 2026 Suresh Kurmi
+            <span class="footer-name">Suresh Kumar Kurmi</span>
+            <br>
+            Engineering Leadership • Linux • Semiconductors • AI
         </div>
 
         <div class="footer-links">
@@ -657,3 +913,4 @@
 
 </body>
 </html>
+```
