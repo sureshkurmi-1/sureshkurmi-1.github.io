@@ -6,7 +6,6 @@ tags: [Linux, DRM, KMS, GPU, Display Graphics, Wayland, Open Source, AI, Semicon
 ---
 
 # From Kernel Engineering to AI-Driven Platform Innovation
-date: 2026-08-16
 
 Linux graphics has evolved from a relatively specialized engineering domain into one of the most important software layers connecting modern silicon to the user experience.
 
