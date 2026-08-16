@@ -1,1 +1,15 @@
+</> YAML
+title: "Suresh Kumar Kurmi"
+description: "Engineering leadership, Linux graphics, semiconductor software, open source and AI-driven engineering."
+theme: jekyll-theme-minimal
 
+author:
+  name: "Suresh Kumar Kurmi"
+
+github_username: sureshkurmi-1
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+show_downloads: false
