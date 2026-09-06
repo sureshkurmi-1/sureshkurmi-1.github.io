@@ -2,413 +2,511 @@
 layout: post
 title: "Why Upstream-First Development Matters"
 date: 2026-09-06
+permalink: /2026/09/06/why-upstream-first-development-matters/
 categories: [Linux Graphics, Open Source, Engineering Leadership]
 tags: [Linux, Upstream, DRM, KMS, GPU, Display Graphics, CI, Simulation, AI, Semiconductor Software]
 ---
 
 # Why Upstream-First Development Matters
 
-Over the years, working across semiconductor software, Linux platforms and Display Graphics has changed the way I think about product development.
+Over the years, working across semiconductor software, embedded systems, Linux platforms and Display Graphics has changed the way I think about product development.
 
-One lesson has become increasingly clear to me:
+One principle has become increasingly clear to me:
 
-> **The earlier we develop with upstream Linux in mind, the easier it becomes to scale technology across products.**
+**Upstream development is not just an open-source practice. It is a product engineering strategy.**
 
-For me, upstream-first is not simply a contribution model or a way of getting patches into the Linux kernel. It is increasingly a **product-development strategy**.
+In the Linux graphics world, where kernel, firmware, drivers, Mesa, display frameworks and applications continuously evolve together, developing with the upstream ecosystem in mind can fundamentally change how products are designed, validated and scaled.
 
-It changes where we find problems, when we validate them, how we reuse engineering investment, and ultimately how quickly a platform can move from silicon to products.
+For me, upstream-first development is about bringing the product engineering lifecycle closer to the real ecosystem in which the software will ultimately live.
 
-## From Product-Specific Development to Platform Development
+---
 
-A traditional product-development approach often looks like this:
+## From Product-Specific Development to Platform Thinking
 
-**Silicon → Product → Customized software → Integration → Validation → Fixes**
+In traditional product development, it is natural to optimize for the immediate product.
 
-When several products are built on related hardware, this model can create multiple branches of essentially the same software problem.
+A feature is developed for a particular platform, validated against a particular hardware configuration and integrated into a product branch. This can work well for a single product.
 
-A display issue discovered in one product may result in a local fix. Another product may encounter the same issue and develop a different solution. Over time, these differences accumulate.
+The challenge appears when the same technology needs to support multiple products, multiple hardware generations and multiple software configurations.
 
-The result is familiar to anyone who has worked on large software platforms:
+The complexity starts multiplying.
 
-- Multiple downstream branches
-- Duplicated fixes
-- Difficult backports
-- Increasing validation effort
-- Divergence from upstream
-- Higher maintenance cost with every new product generation
+A driver change may need to be maintained across several branches. A workaround developed for one product may become a dependency for another. Interfaces can diverge. Validation becomes increasingly expensive.
 
-An upstream-first approach changes the model:
+Over time, engineering teams can spend a significant amount of effort maintaining differences instead of building new capabilities.
 
-**Silicon → Linux upstream → Common platform → Multiple products**
+My experience with Linux Display Graphics has reinforced for me that this is where an upstream-first mindset becomes particularly valuable.
 
-The objective is to solve the problem once at the platform level and make that solution reusable across products.
+Instead of asking:
 
-For a company developing multiple products, that creates a powerful multiplier.
+> "How do we make this work for this product?"
 
-## What My Display Graphics Experience Taught Me
+I increasingly prefer asking:
 
-Working in Linux Display Graphics has reinforced this idea for me.
+> **"How do we solve this in a way that can become part of the common platform?"**
 
-Modern graphics is not an isolated driver problem. It is a complete software stack involving:
+That is a very different engineering question.
 
-**Hardware → Firmware → Kernel/DRM → Display/GPU drivers → Mesa → Wayland/Compositor → Applications**
+---
 
-A change at one layer can influence many products and many use cases.
+## Why Graphics Makes This Especially Important
 
-In my experience, graphics development becomes significantly more effective when architecture, interfaces, validation and upstream integration are considered together rather than treated as separate activities.
+Linux graphics is a good example of a highly interconnected software ecosystem.
 
-This makes upstream development particularly valuable.
+A modern graphics feature rarely belongs to a single component.
 
-When a graphics capability, architectural improvement or bug fix becomes part of the upstream stack, the investment is no longer tied to one product.
+It can involve:
 
-It becomes a **platform capability**.
+- GPU hardware
+- Firmware
+- Linux kernel driver
+- DRM
+- KMS
+- Memory management
+- Display pipelines
+- Mesa
+- Wayland or other compositors
+- User-space applications
+- Validation and CI infrastructure
 
-That is the difference between:
+The interfaces between these components matter as much as the individual implementation.
 
-**"We fixed this product."**
+The Linux DRM architecture itself provides common infrastructure for memory management, command submission, synchronization, framebuffer handling, modesetting and other graphics functions. :contentReference[oaicite:0]{index=0}
 
-and
+This means that a locally optimized solution can easily become a system-level problem if it does not fit the architecture of the broader ecosystem.
 
-**"We improved the platform."**
+The upstream community forces us to think about those interfaces early.
 
-That distinction becomes increasingly important as organizations support multiple products, platforms and generations.
+That is a feature, not a limitation.
+
+---
+
+## Upstream Is an Engineering Feedback Loop
+
+One of the biggest benefits I see in upstream-first development is the feedback loop.
+
+When development happens close to upstream, engineers get feedback from people working on adjacent parts of the stack.
+
+A kernel change may expose a user-space requirement.
+
+A Mesa change may expose a kernel interface problem.
+
+A display feature may reveal a synchronization or memory-management issue.
+
+A validation failure may identify an architectural assumption that was wrong.
+
+This creates an engineering loop:
+
+**Design → Implementation → Upstream Review → Integration → CI → Feedback → Refinement**
+
+That loop is extremely valuable.
+
+It moves some of the discovery of architectural problems earlier in the development lifecycle.
+
+The Linux DRM development process also explicitly encourages design discussion and RFCs for complex work, particularly when new user-space interfaces are involved. :contentReference[oaicite:1]{index=1}
+
+From my perspective, this is essentially **left-shifting system-level validation**.
+
+---
+
+## Left Shift: Validate the Architecture Earlier
+
+"Shift left" is often discussed in the context of testing.
+
+I believe the same concept should apply to architecture.
+
+If an interface is going to be difficult to upstream six months from now, it is much better to discover that during the design phase.
+
+If a proposed uAPI does not fit the Linux graphics model, finding that during upstream review is much cheaper than discovering it after several products have already integrated it.
+
+The DRM community has deliberately developed strong expectations around graphics uAPI. New kernel interfaces are expected to have corresponding open-source user-space implementations and appropriate review and validation. :contentReference[oaicite:2]{index=2}
+
+That process can sometimes feel slower initially.
+
+But I see it differently.
+
+**The objective is not to move slower. The objective is to avoid moving quickly in the wrong direction.**
+
+---
 
 ## Scaling Across Multiple Products
 
-Imagine an organization developing five products using the same graphics architecture.
+This becomes even more important when an organization has multiple products.
 
-With a heavily downstream approach:
+Imagine three product teams independently implementing the same capability.
 
-```text
-Product A ── local graphics changes
-Product B ── local graphics changes
+Without a common upstream strategy, the organization may eventually have:
+
+- Three implementations
+- Three validation strategies
+- Three maintenance branches
+- Three sets of workarounds
+- Multiple integration points
+
+The engineering organization has effectively multiplied the cost of the same feature.
+
+An upstream-first approach tries to reverse that equation.
+
+The goal becomes:
+
+**One architectural solution → shared upstream implementation → multiple product integrations**
+
+The products still have differentiation.
+
+But the foundational software becomes increasingly common.
+
+This is one of the most powerful aspects of open-source platform engineering.
+
 ---
-layout: post
-title: "Why Upstream-First Development Matters"
-date: 2026-09-06
-categories: [Linux Graphics, Open Source, Engineering Leadership]
-tags: [Linux, Upstream, DRM, KMS, GPU, Display Graphics, CI, Simulation, AI, Semiconductor Software]
+
+## Upstream Can Become a Scaling Mechanism
+
+I see upstream not simply as a destination for patches, but as a mechanism for organizational scaling.
+
+When common functionality moves into upstream projects, product teams do not need to independently own every piece of the technology stack.
+
+Instead, engineering investment can move toward:
+
+- Product differentiation
+- Hardware optimization
+- Performance
+- Power efficiency
+- User experience
+- Platform integration
+- New capabilities
+
+while common infrastructure continues to evolve in the upstream ecosystem.
+
+This is particularly relevant for semiconductor companies supporting multiple silicon generations.
+
+The more products an organization has, the more expensive duplicated software becomes.
+
+**Upstream can turn duplicated product engineering into shared platform engineering.**
+
 ---
 
-# Why Upstream-First Development Matters
+## The Cost of Carrying Private Code
 
-Over the years, working across semiconductor software, Linux platforms and Display Graphics has changed the way I think about product development.
+There is another side to this discussion.
 
-One lesson has become increasingly clear to me:
+Every private patch has a maintenance cost.
 
-> **The earlier we develop with upstream Linux in mind, the easier it becomes to scale technology across products.**
+It has to be:
 
-For me, upstream-first is not simply a contribution model or a way of getting patches into the Linux kernel. It is increasingly a **product-development strategy**.
+- Rebasing against newer kernels
+- Revalidated
+- Debugged
+- Integrated with other changes
+- Maintained across product branches
+- Understood by future engineers
 
-It changes where we find problems, when we validate them, how we reuse engineering investment, and ultimately how quickly a platform can move from silicon to products.
+Graphics software makes this particularly challenging because the interfaces between kernel and user space evolve continuously.
 
-## From Product-Specific Development to Platform Development
+The Linux graphics ecosystem also has explicit expectations around maintaining compatibility and avoiding regressions, while recognizing the close coupling between kernel and open-source user space. :contentReference[oaicite:3]{index=3}
 
-A traditional product-development approach often looks like this:
+That means the cost of staying outside upstream can increase over time.
 
-**Silicon → Product → Customized software → Integration → Validation → Fixes**
+The real cost is therefore not just the engineering effort required to create a private patch.
 
-When several products are built on related hardware, this model can create multiple branches of essentially the same software problem.
+It is the **lifetime cost of owning the divergence**.
 
-A display issue discovered in one product may result in a local fix. Another product may encounter the same issue and develop a different solution. Over time, these differences accumulate.
+---
 
-The result is familiar to anyone who has worked on large software platforms:
+## Simulation Can Change the Equation
 
-- Multiple downstream branches
-- Duplicated fixes
-- Difficult backports
-- Increasing validation effort
-- Divergence from upstream
-- Higher maintenance cost with every new product generation
+One area where I see significant potential is simulation.
 
-An upstream-first approach changes the model:
+Linux provides an unusually rich environment for experimenting with system software without always requiring the final hardware to be available.
 
-**Silicon → Linux upstream → Common platform → Multiple products**
+For graphics, this opens interesting possibilities.
 
-The objective is to solve the problem once at the platform level and make that solution reusable across products.
+We can think about validating parts of the software stack using:
 
-For a company developing multiple products, that creates a powerful multiplier.
+- Virtual devices
+- Software-rendered environments
+- Kernel virtualisation
+- Automated CI systems
+- Hardware models
+- Emulation
+- Synthetic workloads
+- Fault injection
+- Performance models
 
-## What My Display Graphics Experience Taught Me
+The goal is not to replace real hardware validation.
 
-Working in Linux Display Graphics has reinforced this idea for me.
+The goal is to **move more validation earlier**.
 
-Modern graphics is not an isolated driver problem. It is a complete software stack involving:
+If a significant portion of the software architecture can be exercised before silicon availability, the development cycle can become much more parallel.
 
-**Hardware → Firmware → Kernel/DRM → Display/GPU drivers → Mesa → Wayland/Compositor → Applications**
+That can have a major impact on semiconductor product schedules.
 
-A change at one layer can influence many products and many use cases.
+---
 
-In my experience, graphics development becomes significantly more effective when architecture, interfaces, validation and upstream integration are considered together rather than treated as separate activities.
+## Linux as a Simulation and Validation Platform
 
-This makes upstream development particularly valuable.
+I see Linux itself becoming increasingly important as a platform for this kind of engineering.
 
-When a graphics capability, architectural improvement or bug fix becomes part of the upstream stack, the investment is no longer tied to one product.
+A software stack can be exercised at different levels:
 
-It becomes a **platform capability**.
+**Application**
 
-That is the difference between:
+↓
 
-**"We fixed this product."**
+**Compositor / User Space**
 
-and
+↓
 
-**"We improved the platform."**
+**Mesa / Graphics Libraries**
 
-That distinction becomes increasingly important as organizations support multiple products, platforms and generations.
+↓
 
-## Scaling Across Multiple Products
+**DRM / Kernel**
 
-Imagine an organization developing five products using the same graphics architecture.
+↓
 
-With a heavily downstream approach:
+**Virtual or Simulated Hardware**
 
-```text
-Product A ── local graphics changes
-Product B ── local graphics changes
-Product C ── local graphics changes
-Product D ── local graphics changes
-Product E ── local graphics changes
-The engineering organization effectively maintains five variations.
+↓
 
-With an upstream-first strategy:
+**Real Hardware**
 
-                 Linux Upstream
-                       │
-             Common Graphics Platform
-                       │
-        ┌──────────────┼──────────────┐
-        │              │              │
-     Product A      Product B      Product C
-        │              │              │
-     Product D      Product E      Future Products
+This creates opportunities to validate interfaces and system behaviour progressively.
 
-The architecture, interfaces, fixes and validation become increasingly reusable.
+For example, the Linux graphics ecosystem already uses CI infrastructure to continuously test interactions between kernel and graphics user space. Mesa's CI documentation describes kernel updates, platform configurations and full-pipeline testing as part of maintaining graphics CI. :contentReference[oaicite:4]{index=4}
 
-This doesn't mean every product becomes identical. Product-specific differentiation will always exist.
+I believe this model can be extended much further.
 
-The important point is that the common technology moves upward into the shared platform instead of being repeatedly recreated downstream.
+---
 
-That is where the scalability comes from.
+## From Continuous Integration to Continuous System Validation
 
-Upstream-First Enables a Better Left Shift
+The next evolution is not simply more CI jobs.
 
-There is another benefit that I consider even more important: left-shifting validation and integration.
+It is **continuous system validation**.
 
-In many traditional product organizations, hardware availability determines when serious software validation can begin.
+Instead of validating only after a feature is implemented, the system could continuously evaluate:
 
-That creates a late integration problem.
+- API compatibility
+- Driver behaviour
+- Performance
+- Power characteristics
+- Regression risk
+- Kernel/user-space interaction
+- Hardware capability assumptions
+- Cross-platform behaviour
 
-A simplified model is:
+AI can potentially help here as well.
 
-Silicon available
-      ↓
-Driver integration
-      ↓
-System integration
-      ↓
-Validation
-      ↓
-Bug discovery
-      ↓
-Debug
-      ↓
-Fix
-      ↓
-Re-test
+Large amounts of engineering data already exist across commits, CI results, bug databases, traces, logs and performance measurements.
 
-The later a problem is discovered, the more expensive it becomes to fix.
+The opportunity is to connect these signals.
 
-With an upstream-first approach, much more of the software architecture can be developed, reviewed and tested before the final product integration phase.
+For example:
 
-The objective is to move validation closer to development rather than waiting for complete product integration.
+**Patch → Build → Test → Regression Analysis → Root Cause → Recommendation**
 
-That changes the engineering question from:
+could increasingly become an automated engineering workflow.
 
-"Does this work when the product is almost ready?"
+---
 
-to:
+## Upstream-First and AI-Driven Engineering
 
-"Can we continuously prove that this change works as we develop it?"
+I also see an interesting connection between upstream development and AI.
 
-That is a much healthier development model.
-Simulation: The Next Opportunity for Linux Platform Development
+AI is becoming very effective at helping engineers navigate large codebases, analyze logs, identify patterns and accelerate implementation.
 
-I believe there is an even bigger opportunity ahead.
+But the quality of AI-assisted engineering depends heavily on the quality of the engineering ecosystem around it.
 
-Linux gives us an excellent environment for increasing the amount of platform development that can happen before complete physical hardware is available.
+An upstream-first environment provides:
 
-Not everything can be simulated.
+- Consistent interfaces
+- Public code
+- Review history
+- Test infrastructure
+- Documentation
+- CI results
+- Design discussions
+- Clear ownership
 
-Graphics performance, power behavior, display timing and many hardware-specific interactions ultimately require real silicon.
+This creates a much richer context for AI-assisted engineering.
 
-But a significant amount of software engineering can be exercised earlier.
+Instead of AI simply generating code, it can potentially help answer higher-level questions:
 
-We can validate:
+**Has this problem already been solved?**
 
-Driver architecture
-Interfaces
-Error handling
-Userspace interactions
-Command submission paths
-Memory-management behavior
-Display-stack integration
-API behavior
-Regression tests
-System configuration
-Automation
-Portions of workload execution
+**Is there an existing upstream interface?**
 
-The important idea is not that simulation replaces hardware.
+**Which subsystem should own this functionality?**
 
-It is that simulation expands the amount of software validation we can perform before hardware-dependent validation becomes available.
+**What regressions could this change introduce?**
 
-That can significantly change the product-development timeline.
+**Which tests should be added?**
 
-Upstream + CI + Simulation = A Stronger Development Loop
+**Does this design fit existing architecture?**
 
-I see these three technologies working together:
+That is where I believe AI can become much more valuable to engineering organizations.
 
-              UPSTREAM-FIRST
-                    │
-                    ↓
-          Common platform architecture
-                    │
-                    ↓
-             CI / Automation
-                    │
-                    ↓
-          Continuous validation
-                    │
-                    ↓
-              Simulation
-                    │
-                    ↓
-       Earlier software validation
-                    │
-                    ↓
-          Real hardware validation
-                    │
-                    ↓
-              Production
-Instead of waiting for hardware and then discovering problems, we progressively eliminate classes of problems throughout the development cycle.
+---
 
-This is what I mean by left-shifting product development.
+## Upstream Review as Architecture Review
 
-The earlier we can find a problem, the easier it generally is to fix.
+One of the most interesting lessons from the Linux graphics ecosystem is that upstream review is not merely code review.
 
-Upstream Is Also an Engineering Quality Mechanism
+At its best, it is architecture review.
 
-One aspect of upstream development that is sometimes underestimated is technical review.
+A patch may trigger questions such as:
 
-When code remains inside a product organization, local assumptions and shortcuts can sometimes survive for a long time.
+- Is this the correct abstraction?
+- Should this functionality belong in the kernel?
+- Should this be handled in user space?
+- Is a new interface really required?
+- Can an existing helper be extended?
+- Does the design scale to future hardware?
+- Will this create long-term compatibility problems?
 
-Upstream development exposes those decisions to a broader engineering community.
+Those questions are valuable even before the code is written.
 
-That creates pressure to improve:
+For engineering leaders, this changes the role of upstream participation.
 
-Architecture
-Interfaces
-Maintainability
-Documentation
-Testing
-Error handling
-Long-term compatibility
+It becomes part of **technology strategy**, not simply contribution management.
 
-From my perspective, this is one of the hidden benefits of upstream-first development.
+---
 
-The upstream community becomes part of the engineering feedback loop.
+## What This Means for Engineering Organizations
 
-Upstream-First Does Not Mean Upstream-Only
+For organizations building semiconductor platforms, I believe upstream-first development requires a cultural shift.
 
-There is an important distinction here.
+Teams need to think beyond their immediate product boundary.
 
-I don't believe every piece of product software needs to be upstream.
+Instead of measuring only:
 
-There will always be:
+**"Did we deliver the feature?"**
 
-Product-specific functionality
-Proprietary algorithms
-Confidential technology
-Customer-specific requirements
-Temporary integration code
-Hardware bring-up code
-Product differentiation
+we should also ask:
 
-The objective is not to eliminate downstream development.
+**"Did we build it in a way that scales?"**
 
-The objective is to ask a different question:
+That includes measuring:
 
-"Should this capability really belong only to this product?"
+- Percentage of functionality aligned with upstream
+- Number of long-lived private patches
+- Time required to upstream new features
+- Regression rates
+- Cross-product reuse
+- Automated validation coverage
+- Time from design to upstream acceptance
+- Engineering effort spent maintaining divergence
 
-If the answer is no, upstream should be considered from the beginning.
+These measurements provide a different view of engineering health.
 
-This mindset can prevent years of accumulated downstream maintenance.
+---
 
-The Organizational Impact
+## My Experience With Display Graphics
 
-Upstream-first development also changes how engineering organizations scale.
+Working in Display Graphics has made this perspective particularly clear to me.
 
-If every new product requires a new team to understand and maintain a large downstream software stack, engineering capacity grows with product count.
+Graphics is not an isolated driver problem.
 
-But if common platform capabilities are developed upstream and continuously validated, the organization can increasingly reuse its engineering investment.
+A display feature can cross hardware, firmware, kernel, user space, compositor and application layers.
 
-That means the organization can spend more time on:
+A change that looks small at one layer can have consequences several layers away.
 
-Innovation rather than integration.
+That is why I increasingly see the value of designing with the complete ecosystem in mind.
 
-For engineering leaders, I see this as one of the most important benefits.
+The Linux graphics community is continuously working through exactly these types of interactions across DRM, i915, Xe, Mesa, display components, CI and user-space interfaces. The public development traffic reflects an ongoing cycle of patches, reviews, testing and refinement. :contentReference[oaicite:5]{index=5}
 
-The goal is not simply to increase the number of engineers.
+For me, that is one of the strongest arguments for upstream-first engineering.
 
-The goal is to increase the engineering leverage per engineer.
+---
 
-A well-designed upstream platform can provide exactly that leverage.
+## The Bigger Vision
 
-Looking Ahead
+I believe the future semiconductor software organization will look increasingly different from the traditional product software organization.
 
-My experience in Display Graphics has convinced me that the future of Linux platform development will increasingly depend on three principles:
+Instead of every product maintaining its own software island, we can move toward a model like:
 
-1. Upstream early
+**Common upstream platform**
 
-Develop the architecture with upstream acceptance and long-term maintainability in mind from the beginning.
+↓
 
-2. Validate continuously
+**Shared validation and simulation**
 
-Use CI, automated regression testing and real hardware validation to move validation closer to every change.
+↓
 
-3. Simulate wherever practical
+**Common kernel and user-space infrastructure**
 
-Use simulation and virtualized environments to validate software behavior before complete hardware availability.
+↓
 
-Together, these principles create a much more scalable development model.
+**Product-specific differentiation**
 
-My View
+↓
 
-After working across different generations of technology — from DSP and embedded systems to semiconductor multimedia platforms and Linux Display Graphics — I increasingly see upstream development as more than an open-source philosophy.
+**Automated continuous validation**
 
-I see it as a way of engineering platforms.
+↓
 
-The real opportunity is to move from:
+**AI-assisted engineering**
 
-Product → Fork → Fix → Validate → Repeat
+This model can improve both engineering efficiency and product scalability.
 
-toward:
+The objective is not to eliminate product-specific engineering.
 
-Upstream → Automate → Simulate → Validate → Reuse → Scale
+It is to make sure product-specific engineering is focused on the areas that actually differentiate the product.
 
-For organizations building multiple products on common silicon and software foundations, this can become a significant competitive advantage.
+---
 
-The biggest shift, in my view, is not simply getting code upstream.
+## Upstream-First Is About Long-Term Engineering Economics
 
-It is changing the question from:
+For me, upstream-first development ultimately comes down to engineering economics.
 
-"How do we make this product work?"
+Every duplicated implementation has a cost.
 
-to:
+Every private interface has a cost.
 
-"How do we build the platform so that the next five products start from a much stronger position?"
+Every long-lived downstream patch has a cost.
 
-That is why I believe upstream-first development matters.
+Every manual validation step has a cost.
 
-And I believe Linux, combined with automated CI, simulation and increasingly AI-assisted engineering, gives us an opportunity to push that philosophy much further than we have today.
+Every branch that diverges from the ecosystem creates future maintenance work.
+
+Upstream development does not eliminate those costs.
+
+But it can significantly reduce duplication and move more of the engineering effort toward a shared platform.
+
+That is especially powerful when the same software architecture needs to support multiple products and multiple generations of hardware.
+
+---
+
+## Closing Thoughts
+
+I don't see upstream-first development as simply:
+
+**"Contribute code to Linux."**
+
+I see it as a way of designing software organizations.
+
+It encourages engineers to think about:
+
+- Architecture before implementation
+- Interfaces before integration
+- Validation before product release
+- Reuse before duplication
+- Simulation before hardware availability
+- Automation before manual execution
+- Ecosystems before individual products
+
+And most importantly, it encourages us to build software that can survive beyond a single product cycle.
+
+For Linux Graphics and Display engineering, I believe this becomes increasingly important as hardware complexity grows and software stacks become more interconnected.
+
+The opportunity is to combine **upstream-first engineering, simulation, continuous validation and AI-assisted development** into a new engineering model.
+
+One where we don't simply develop software faster.
+
+**We develop software that scales better across products, teams and generations of technology.**
+
+That, to me, is the real value of upstream-first development.
+
+---
+
+*My views are based on my experience working across semiconductor software, Linux platforms and Display Graphics engineering. The objective is not to prescribe one development model for every organization, but to explore how upstream engineering can contribute to scalable platform development.*
