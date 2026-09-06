@@ -1,6 +1,5 @@
 ---
 layout: post
-title: "Why Upstream-First Development Matters"
 date: 2026-09-06
 permalink: /2026/09/06/why-upstream-first-development-matters/
 categories: [Linux Graphics, Open Source, Engineering Leadership]
