@@ -250,6 +250,80 @@
             color: #667085;
         }
 
+        /* CAREER TIMELINE */
+
+        .career {
+            background: #ffffff;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin-top: 45px;
+            padding-left: 35px;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 8px;
+            top: 5px;
+            bottom: 5px;
+            width: 2px;
+            background: #dbe3ef;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 38px;
+            padding-left: 28px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -1px;
+            top: 6px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #155eef;
+            border: 4px solid #ffffff;
+            box-shadow: 0 0 0 1px #cbd5e1;
+        }
+
+        .timeline-period {
+            font-size: 13px;
+            font-weight: 750;
+            color: #155eef;
+            letter-spacing: 0.3px;
+            margin-bottom: 4px;
+        }
+
+        .timeline-company {
+            font-size: 21px;
+            font-weight: 750;
+            color: #111827;
+            margin-bottom: 2px;
+        }
+
+        .timeline-role {
+            font-size: 16px;
+            font-weight: 650;
+            color: #344054;
+            margin-bottom: 7px;
+        }
+
+        .timeline-focus {
+            font-size: 14px;
+            color: #667085;
+            max-width: 720px;
+        }
+
         /* ARTICLES */
 
         .articles {
@@ -446,90 +520,15 @@
             h1 {
                 letter-spacing: -1.8px;
             }
+
+            .timeline {
+                padding-left: 25px;
+            }
+
+            .timeline-item {
+                padding-left: 22px;
+            }
         }
-        /* CAREER TIMELINE */
-
-.career {
-    background: #ffffff;
-}
-
-.timeline {
-    position: relative;
-    max-width: 900px;
-    margin-top: 45px;
-    padding-left: 35px;
-}
-
-.timeline::before {
-    content: "";
-    position: absolute;
-    left: 8px;
-    top: 5px;
-    bottom: 5px;
-    width: 2px;
-    background: #dbe3ef;
-}
-
-.timeline-item {
-    position: relative;
-    margin-bottom: 38px;
-    padding-left: 28px;
-}
-
-.timeline-item:last-child {
-    margin-bottom: 0;
-}
-
-.timeline-item::before {
-    content: "";
-    position: absolute;
-    left: -1px;
-    top: 6px;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background: #155eef;
-    border: 4px solid #ffffff;
-    box-shadow: 0 0 0 1px #cbd5e1;
-}
-
-.timeline-period {
-    font-size: 13px;
-    font-weight: 750;
-    color: #155eef;
-    letter-spacing: 0.3px;
-    margin-bottom: 4px;
-}
-
-.timeline-company {
-    font-size: 21px;
-    font-weight: 750;
-    color: #111827;
-    margin-bottom: 2px;
-}
-
-.timeline-role {
-    font-size: 16px;
-    font-weight: 650;
-    color: #344054;
-    margin-bottom: 7px;
-}
-
-.timeline-focus {
-    font-size: 14px;
-    color: #667085;
-    max-width: 720px;
-}
-
-@media (max-width: 650px) {
-    .timeline {
-        padding-left: 25px;
-    }
-
-    .timeline-item {
-        padding-left: 22px;
-    }
-}
     </style>
 </head>
 
@@ -538,18 +537,20 @@
 <nav>
     <div class="container nav-inner">
 
-        <a class="logo" href="/">Suresh Kumar Kurmi</a>
+        <a class="logo" href="/">
+            Suresh Kumar Kurmi
+        </a>
 
         <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#focus">Expertise</a>
-    <a href="#career">Career</a>
-    <a href="#articles">Articles</a>
-    <a href="#leadership">Leadership</a>
-    <a href="/research/">Research</a>
-    <a href="/projects/">Projects</a>
-    <a href="/publications/">Publications</a>
-</div>
+            <a href="#about">About</a>
+            <a href="#focus">Expertise</a>
+            <a href="#career">Career</a>
+            <a href="#articles">Articles</a>
+            <a href="#leadership">Leadership</a>
+            <a href="/research/">Research</a>
+            <a href="/projects/">Projects</a>
+            <a href="/publications/">Publications</a>
+        </div>
 
     </div>
 </nav>
@@ -565,7 +566,9 @@
                 Engineering Leadership • Linux • GPU • Semiconductors • AI
             </div>
 
-            <h1>Suresh Kumar Kurmi</h1>
+            <h1>
+                Suresh Kumar Kurmi
+            </h1>
 
             <h2 class="hero-title">
                 Engineering Leader | Linux Graphics & Display |
@@ -640,7 +643,9 @@
 
         <div class="section-heading">
 
-            <div class="section-label">Technical Focus</div>
+            <div class="section-label">
+                Technical Focus
+            </div>
 
             <h2 class="section-title">
                 Where technology and engineering leadership meet
@@ -659,7 +664,9 @@
 
             <div class="focus-card">
 
-                <h3>Linux Graphics & Display</h3>
+                <h3>
+                    Linux Graphics & Display
+                </h3>
 
                 <p>
                     System-level graphics engineering across the Linux
@@ -676,7 +683,9 @@
 
             <div class="focus-card">
 
-                <h3>Semiconductor Software</h3>
+                <h3>
+                    Semiconductor Software
+                </h3>
 
                 <p>
                     Software engineering at the hardware/software boundary,
@@ -693,7 +702,9 @@
 
             <div class="focus-card">
 
-                <h3>AI & Engineering Transformation</h3>
+                <h3>
+                    AI & Engineering Transformation
+                </h3>
 
                 <p>
                     Exploring how AI and automation can improve the
@@ -710,7 +721,9 @@
 
             <div class="focus-card">
 
-                <h3>Open Source Engineering</h3>
+                <h3>
+                    Open Source Engineering
+                </h3>
 
                 <p>
                     Perspectives on upstream-first development,
@@ -730,13 +743,16 @@
 
 </section>
 
+
 <section id="career" class="career">
 
     <div class="container">
 
         <div class="section-heading">
 
-            <div class="section-label">Career & Experience</div>
+            <div class="section-label">
+                Career & Experience
+            </div>
 
             <h2 class="section-title">
                 23+ years of engineering across technology domains
@@ -865,7 +881,8 @@
 
     </div>
 
-</section>    
+</section>
+
 
 <section id="articles">
 
@@ -873,7 +890,9 @@
 
         <div class="section-heading">
 
-            <div class="section-label">From the Blog</div>
+            <div class="section-label">
+                From the Blog
+            </div>
 
             <h2 class="section-title">
                 Technical perspectives
@@ -888,6 +907,9 @@
 
 
         <div class="articles">
+
+
+            <!-- ARTICLE 1 -->
 
             <article class="article">
 
@@ -913,6 +935,8 @@
             </article>
 
 
+            <!-- ARTICLE 2 -->
+
             <article class="article">
 
                 <div class="article-category">
@@ -937,6 +961,8 @@
             </article>
 
 
+            <!-- ARTICLE 3 -->
+
             <article class="article">
 
                 <div class="article-category">
@@ -952,9 +978,10 @@
                     advantage for semiconductor software organizations.
                 </p>
 
-                <span class="article-link">
-                    Coming soon
-                </span>
+                <a class="article-link"
+                   href="/2026/09/06/why-upstream-first-development-matters/">
+                    Read article →
+                </a>
 
             </article>
 
@@ -971,7 +998,9 @@
 
         <div>
 
-            <div class="section-label">About</div>
+            <div class="section-label">
+                About
+            </div>
 
             <h2 class="section-title">
                 Engineering with a system-level perspective
@@ -1000,7 +1029,9 @@
 
         <div class="principles">
 
-            <h3>Engineering Principles</h3>
+            <h3>
+                Engineering Principles
+            </h3>
 
             <div class="principle">
                 Deep technical expertise
@@ -1035,7 +1066,9 @@
 
         <div class="section-heading">
 
-            <div class="section-label">Leadership</div>
+            <div class="section-label">
+                Leadership
+            </div>
 
             <h2 class="section-title">
                 Building engineering organizations for the next generation
@@ -1053,7 +1086,9 @@
 
             <div class="leadership-card">
 
-                <h3>Technical Strategy</h3>
+                <h3>
+                    Technical Strategy
+                </h3>
 
                 <p>
                     Connecting technology direction with product,
@@ -1065,7 +1100,9 @@
 
             <div class="leadership-card">
 
-                <h3>Engineering Excellence</h3>
+                <h3>
+                    Engineering Excellence
+                </h3>
 
                 <p>
                     Improving quality and execution through automation,
@@ -1077,7 +1114,9 @@
 
             <div class="leadership-card">
 
-                <h3>AI Transformation</h3>
+                <h3>
+                    AI Transformation
+                </h3>
 
                 <p>
                     Applying AI to engineering workflows while
@@ -1089,7 +1128,9 @@
 
             <div class="leadership-card">
 
-                <h3>Technical Leaders</h3>
+                <h3>
+                    Technical Leaders
+                </h3>
 
                 <p>
                     Developing engineers and architects who can
@@ -1110,10 +1151,17 @@
     <div class="container footer-inner">
 
         <div>
-            <span class="footer-name">Suresh Kumar Kurmi</span>
+
+            <span class="footer-name">
+                Suresh Kumar Kurmi
+            </span>
+
             <br>
+
             Engineering Leadership • Linux • Semiconductors • AI
+
         </div>
+
 
         <div class="footer-links">
 
@@ -1135,4 +1183,3 @@
 
 </body>
 </html>
-```
