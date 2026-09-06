@@ -60,6 +60,25 @@ Work across DSP, ARM and multimedia software components, including architecture,
 
 ---
 
+### Linux Audio & Multimedia Platform
+
+Technical architecture and platform engineering for Linux-based Audio, Video and Graphics systems.
+
+- ALSA and ASoC architecture and Linux audio subsystem integration
+- Linux device-driver development for ASoC
+- GStreamer framework integration and architecture
+- GStreamer–ALSA interface and multimedia pipeline integration
+- GStreamer video and graphics pipeline development
+- Audio, Video & Graphics system architecture
+- USB kernel stack integration and troubleshooting
+- Linux platform-level system troubleshooting supporting multiple customer programs
+
+### Technical Leadership & Platform Engineering
+
+- Technical coordination with counterpart engineering teams in Germany (RBCM, Hildesheim)
+- Product roadmap preparation with cross-functional stakeholders
+- Technical mentoring and guidance for engineering teams
+
 ## Display Graphics & Linux
 
 ### Linux Display Graphics
